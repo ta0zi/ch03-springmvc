@@ -31,17 +31,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 〈一句话功能简述〉<br> 
- * 〈〉
- *
- * @author taozi
 
- * @create 2022/3/30
-
- * @since 1.0.0
-
- */
 @Service
 public class StudentServiceImpl implements StudentService {
     @Autowired
