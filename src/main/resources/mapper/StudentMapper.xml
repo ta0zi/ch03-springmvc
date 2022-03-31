@@ -43,5 +43,4 @@ values (#{id},#{name},#{email},#{age});
             email=#{email}
         </if>
     </sql>
-
 </mapper>
