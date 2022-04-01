@@ -6,7 +6,6 @@
     <select id="selectStudents" resultType="Student">
         select id,name,age from student order by id desc
     </select>
-
     <insert id="insertStudent">
         insert into student(name,email,age) values(#{name},#{email},#{age})
     </insert>

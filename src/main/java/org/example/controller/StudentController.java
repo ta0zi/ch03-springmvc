@@ -46,7 +46,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/student")
-
 public class StudentController {
     @Resource
     private StudentService service;

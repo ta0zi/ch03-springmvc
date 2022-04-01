@@ -21,7 +21,7 @@ package org.example.pojo;
 
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈〉
  *
  * @author taozi
@@ -70,7 +70,6 @@ public class Student {
     public void setAge(Integer age) {
         this.age = age;
     }
-
 
 
 }

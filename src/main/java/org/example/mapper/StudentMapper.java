@@ -10,5 +10,4 @@ import java.util.Map;
 public interface StudentMapper {
     int insertStudent(Student student);
     List<Student> selectStudents();
-
 }

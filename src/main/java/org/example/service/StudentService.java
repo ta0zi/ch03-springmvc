@@ -41,5 +41,4 @@ public interface StudentService {
 
     int addStudent(Student student);
     List<Student> findStudents();
-
 }
