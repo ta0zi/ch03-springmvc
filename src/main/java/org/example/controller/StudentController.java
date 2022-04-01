@@ -26,11 +26,10 @@ import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -45,28 +44,35 @@ import java.util.List;
 
  */
 
-@RestController
+@Controller
 @RequestMapping("/student")
 public class StudentController {
+    @Resource
+    private StudentService service;
 
-    @Autowired
-    private StudentService studentService;
-
-    @RequestMapping("/test")
-    public String test(){
-        return "success";
+    //添加学生
+    @RequestMapping("/addStudent.do")
+    public ModelAndView addStudent(Student student){
+        ModelAndView mv =new ModelAndView();
+        String tips = "注册失败";
+        //调用service处理
+        int nums = service.addStudent(student);
+        if(nums > 0){
+            tips = "学生【"+student.getName()+"】注册成功";
+        }
+        //添加数据
+        mv.addObject("tips", tips);
+        //指定结果页面(逻辑名称)
+        mv.setViewName("result");
+        return mv;
     }
 
-    @RequestMapping(value = "/addStudent",method = RequestMethod.POST)
-    public String addStudent(Student student){
-       int i = studentService.addStudent(student);
-       if (i>0){
-           return "添加成果";
-       }
-        return "添加失败";
+    //查询 返回json
+    @RequestMapping("/queryStudent.do")
+    @ResponseBody
+    public List<Student> queryStudent(Student student){
+        //省略参数检查以及数据处理
+        List<Student> students = service.findStudents();
+        return students;
     }
-
-
-
-
 }

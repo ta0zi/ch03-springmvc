@@ -38,19 +38,7 @@ import java.util.Map;
  */
 
 public interface StudentService {
-    //增加
     int addStudent(Student student);
-    //删除
-    int deleteStudent(int id);
-    //更新
-    int updateStudent(Student student);
-
-    int deleteStudents(List<Integer> ids);
-
-    List<Student> findAllStudents();
-
-    List<Student> findStudentsParams(Map<String,Object> map);
-
-
+    List<Student> findStudents();
 
 }
